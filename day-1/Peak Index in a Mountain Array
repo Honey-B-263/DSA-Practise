@@ -28,7 +28,7 @@ public:
            mid =s + (e-s)/2;
         }
 
-        return s;
+        return s; // or return mid; //it will give same results
         
     }
 };
