@@ -1,0 +1,57 @@
+class Solution {
+public:
+//code to find the pivot of an array(a pivot is the smallest element of the array)
+    int findPivot(vector<int>& nums, int n){ // n=nums.size()
+        int s=0; 
+        int e=n-1;
+        int mid= s+(e-s)/2;
+        while(s<e){
+            if(nums[mid]>=nums[0]){ //ie, my mid lies in the first line therefore iterate the s
+            s=mid+1;
+            }
+            else{
+                e=mid;
+            }
+            mid = s+(e-s)/2;
+
+        }
+        return s;
+    }
+
+    int binarySearch(vector<int>& nums, int start, int end, int k){
+        int s=start;
+        int e=end;
+        int mid= s+(e-s)/2;
+        while(s<=e){
+            if(nums[mid]==k){
+                return mid;
+            }
+            if(nums[mid]>k){
+                e=mid-1;
+            }
+            else{
+                s=mid+1;
+            }
+            mid = s+(e-s)/2;
+            
+        }
+        return -1;
+
+    }
+
+
+    int search(vector<int>& nums, int k) {
+
+        int pivot=findPivot(nums, nums.size()); // n=nums.size()
+        
+        if(nums[pivot]<=k && k<=nums[nums.size()-1]){ // apply binary search on 2nd line as my target lies on the second line
+             return binarySearch(nums, pivot, nums.size()-1 ,k);
+
+        }
+        else{ //apply binary search on first line!
+           return binarySearch(nums, 0, pivot-1,k);
+
+        }
+        
+    }
+};
