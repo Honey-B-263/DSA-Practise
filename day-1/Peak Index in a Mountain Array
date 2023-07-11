@@ -28,7 +28,7 @@ public:
            mid =s + (e-s)/2;
         }
 
-        return s; //same ans with return s; how????????? 
+        return mid; //same ans with return s; how????????? 
         //consider the test case [1,2,5,3,1] mid1=2 ie, value 5; it is not smaller than 3 therefore go to else e=2, mid2=1ie value 2; now it goes to if as 2<5, s=mid+1, ie, 1+1=2 value =5; mid3=2+(2-2)/2; now e==s therefore exit the loop return mid or s, answer will be same!!!!!!!!!!!!
         
     }
